@@ -6,61 +6,130 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
+      color: #fff;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100vh;
+      background-color: #333;
     }
-
+    .content {
+      position: relative;
+      z-index: 3;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
     h1 {
       font-size: 48px;
-      margin-bottom: 20px;
-      background: rgba(0, 0, 0, 0.6);
-      display: inline-block;
-      padding: 10px 30px;
-      border-radius: 12px;
+      margin-bottom: 10px;
     }
-
     p {
-      font-size: 24px;
-      background: rgba(0, 0, 0, 0.5);
-      display: inline-block;
-      padding: 10px 25px;
-      border-radius: 10px;
+      font-size: 20px;
+      margin-bottom: 40px;
     }
-
-    footer {
-      position: absolute;
-      bottom: 30px;
-      width: 100%;
-      font-size: 18px;
-    }
-
     .contacts {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-top: 1px solid #444;
+    }
+    .games {
       background: rgba(0, 0, 0, 0.5);
-      padding: 15px;
-      border-radius: 10px;
-      display: inline-block;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .games h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    .games ul {
+      list-style: none;
+      padding: 0;
+      font-size: 20px;
+    }
+    .games p {
+      margin-top: 15px;
+      font-style: italic;
+      color: #ccc;
+    }
+    .video-container {
+      position: relative;
+      width: 80%;
+      height: auto;
+      margin: 0 auto;
+      background-color: black;
+      margin-top: 30px;
+    }
+    .controls {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+    }
+    .controls button {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      cursor: pointer;
+      font-size: 24px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+    .controls button.play {
+      background-color: green;
+    }
+    .controls button.pause {
+      background-color: red;
     }
   </style>
 </head>
 <body>
-  <h1>talgatovich013</h1>
-  <p>Ждите что-то грандиозное!</p>
 
-  <footer>
-    <div class="contacts">
-      <p>Instagram: <a href="https://instagram.com/k.talgatovich_013" style="color: #00acee;">@k.talgatovich_013</a></p>
-      <p>WhatsApp: <a href="https://wa.me/87780580681" style="color: #25D366;">+7 778 058 0681</a></p>
-      <p>Email: <a href="mailto:zloyking258@gmail.com" style="color: #fff;">zloyking258@gmail.com</a></p>
-      <p>Если что — свяжитесь со мной</p>
+  <!-- Контент (верхняя часть с текстом) -->
+  <div class="content">
+    <h1>talgatovich013</h1>
+    <p>Ждите что-то грандиозное. Всё только начинается.</p>
+
+    <div class="games">
+      <h2>Рекомендованные игры:</h2>
+      <ul>
+        <li>Counter-Strike 2</li>
+        <li>Rust</li>
+        <li>FIFA</li>
+      </ul>
+      <p>Смотрите для души</p>
     </div>
-  </footer>
+
+    <div class="contacts">
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/k.talgatovich_013" target="_blank">k.talgatovich_013</a></p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/777780580681" target="_blank">877780580681</a></p>
+      <p><strong>Email:</strong> <a href="mailto:zloyking258@gmail.com" target="_blank">zloyking258@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- Кнопки Play и Pause в верхней части -->
+  <div class="controls">
+    <button class="play" onclick="playVideo()">Play</button>
+    <button class="pause" onclick="pauseVideo()">Pause</button>
+  </div>
+
+  <!-- Видео с элементами управления -->
+  <div class="video-container">
+    <!-- Вставляем видео с YouTube -->
+    <iframe id="natureVideo" width="100%" height="400" src="https://www.youtube.com/embed/DDsqUbCHUsw?controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    // Функция для воспроизведения видео
+    function playVideo() {
+      var video = document.getElementById('natureVideo');
+      video.src += "?autoplay=1";  // Включаем автозапуск
+    }
+
+    // Функция для паузы видео
+    function pauseVideo() {
+      var video = document.getElementById('natureVideo');
+      video.src = video.src.replace("?autoplay=1", "");  // Отключаем автозапуск, тем самым ставим видео на паузу
+    }
+  </script>
+
 </body>
 </html>
